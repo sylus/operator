@@ -126,11 +126,11 @@ Username: admin
 Password: abcd1234-abcd-1234-abcd-1234abcd1234
 
 Web interface access: 
-	$ kubectl port-forward svc/minio-tenant1-console 9090:9443
-	Point browser to https://localhost:9090
+	$ kubectl port-forward svc/minio-tenant1-console 9443:9443
+	Point browser to https://localhost:9443
 
 Object storage access: 
-	$ kubectl port-forward svc/minio-tenant1-hl 9000:9000
+	$ kubectl port-forward svc/minio 9000:9000
 	$ mc alias set tenant1 https://localhost:9000 admin abcd1234-abcd-1234-abcd-1234abcd1234
 ```
 
@@ -145,7 +145,7 @@ from the local host to the MinIO Tenant.
 
 Applications inside the Kubernetes cluster can access the MinIO Tenant through either the
 web interface service (`minio-tenant1-console`) *or* the object storage service
-(`minio-tenant1-hl`). 
+(`miniol`). 
 
 Applications outside of the Kubernetes cluster require the Kubernetes
 administrator to expose the service using Kubernetes resources like 
